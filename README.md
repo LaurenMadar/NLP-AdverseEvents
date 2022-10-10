@@ -1,1 +1,19 @@
 # NLP-AdverseEvents
+## Project Title: Drug Adverse Event Recognition 
+## Team: Lauren Madar 
+## Project Description: 
+### Objective: 
+Adverse events are instances where a patient who has taken a pharmaceutical drug (or used a medical device) and then has a negative experience (such as a side effect). Pharmaceutical manufacturers must report and address adverse events in a timely manner to ensure that the adverse events can be appropriately handled (in extreme cases, by way of a product recall).  
+### Usefulness: 
+Adverse events can be reported in many ways – a patient may call a pharmaceutical company directly (and captured by call transcript), via email message, or may make mention of a side effect when they speak to their physician during a visit. Physicians are expected to properly report such instances to the appropriate company.  However, many physicians are extremely busy and have limited time to spend with each patient. It would be advantageous to be able to identify potential adverse events in a physician’s visit notes, from patient messages and chats in health portals and other sources. Even if identification of potential adverse events is not accurate, automatically parsing and flagging documents or phrases for review would allow these events to be more quickly identified and reported to the appropriate companies. 
+
+NLP is currently used in many healthcare use cases such as prior authorization for determination of health insurance payment eligibility. When it comes to reporting adverse events, in some cases PDF and web forms are still used for submission (such as the Vaccine Adverse Event Reporting System - https://vaers.hhs.gov/reportevent.html). 
+
+However, adverse events can occur within conversations or documents that are not specifically intended to communicate an adverse event – a patient may make an offhanded comment about having a headache after taking a prescription drug, which must still be reported. This type of comment may not be detected by a busy physician or reviewed by a medical office staffer if it occurs in a message or email, or if included in logbook notes in a wellness application.  Monitoring for adverse events in any sort of patient-related text would be of great benefit for capturing these types of events quickly regardless of the appropriateness of the channel through which it was submitted. 
+
+### Data: 
+Data may potentially come from several sources, including simulated patient/physician conversations (as described here: https://www.nature.com/articles/s41597-022-01423-1). The Food and Drug Administration (FDA) provides a public dashboard for exploring adverse events that have been reported (FAERS dashboard - https://www.fda.gov/drugs/questions-and-answers-fdas-adverse-event-reporting-system-faers/fda-adverse-event-reporting-system-faers-public-dashboard) but the data available here does not contain the original reported text – the data here has already been categorized and cleaned. 
+
+Deidentified (personal health information removed) 2,434 nursing notes from the MIMIC-II database are available on PhysioNet  (https://physionet.org/content/deidentifiedmedicaltext/1.0/) once training has been completed and this set of data would make sense to use for this project.  The data available includes free-text data from the nurse’s description of the interaction with the patient, which may have medication and treatment information. Additional columns with sanitized personal identification are provided as well, but labels are not present.  Further data analysis will be necessary once full access is attained.
+
+Stopwords will need to be identified, and the different generic and brand names of drugs should be created as a dictionary to search any free text.  A vocabulary of common adverse events or symptoms (like “headache”) should be created and trained.  Special characters can be cleaned but dosage information which may be numeric will be important to retain. 
