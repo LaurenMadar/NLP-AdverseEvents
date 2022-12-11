@@ -1,0 +1,26 @@
+{% extends "workspace.html" %}
+{% load static %}
+
+
+{% block workspacetitle %}
+Explore
+{% endblock %}
+
+{% block workspacebody %}
+<div class="row">
+	<div class="col">
+		<h6>Text from Medical Notes (first 5)</h6>
+		{% include 'explore/corptablehome.html' %}
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<h6>Medications (first 8)</h6>
+		{% include 'explore/medtablehome.html' %}
+	</div>
+	<div class="col">
+		<h6>Symptoms (first 8)</h6>
+		{% include 'explore/symtablehome.html' %}
+	</div>
+</div>
+{% endblock %}

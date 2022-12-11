@@ -1,0 +1,16 @@
+{% extends "workspace.html" %}
+{% load static %}
+
+
+{% block workspacetitle %}
+Search for Potential Adverse Events
+{% endblock %}
+
+{% block workspacebody %}
+<p>Search set of medical notes (up to total {{ numcorp }} which will take a long time) for any medication/symptom combination:</p>
+<label for="searchlimit">Search how many corpuses?</label>
+<input type="number" placeholder="10" value="10" id="searchlimit" />
+<button id="search" type="button" class="btn btn-primary">
+    <span id="searchbtn">Start Search!</span>
+</button>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "explore/explorehome.html" %}
+{% load static %}
+
+{% block workspace %}
+<div class="container fluid d-flex flex-column flex-grow-0">
+	<div class="d-flex flex-row flex-grow-0">
+		<div class="col">
+			<h4 class="pb-2 border-bottom">
+				{% block workspacetitle %}
+				Corpus ID {{ corpus.id }} Detail: {{ corpus.title }}
+				{% endblock %}
+			</h4>
+		</div>
+	</div>
+	{% block workspacebody %}
+	<div class="d-flex flex-row flex-grow-1">
+		<div class="col">
+            <dl class="row">
+                <dt class="col-sm-2">Title</dt>
+                <dd class="col-sm-4">
+                  <p>{{ corpus.title}}</p>
+                </dd>
+                <dt class="col-sm-2">Specialty</dt>
+                <dd class="col-sm-4">
+                  <p>{{ corpus.medspecialty}}</p>
+                </dd>
+                <dt class="col-sm-2">Source</dt>
+                <dd class="col-sm-4">
+                  <p>{{ corpus.source}}</p>
+                </dd>
+                <dt class="col-sm-2">Added by</dt>
+                <dd class="col-sm-4">
+                  <p>{{ corpus.imported_by}} on {{ corpus.import_date}}</p>
+                </dd>
+                <dt class="col-sm-2">Safe?</dt>
+                <dd class="col-sm-4">
+                  <p>{{ corpus.safe}}</p>
+                </dd>
+                <dt class="col-sm-2">New?</dt>
+                <dd class="col-sm-4">
+                  <p>{{ corpus.new}}</p>
+                </dd>
+                <dt class="col-sm-2">Corpus Text</dt>
+                <dd class="col-sm-10">
+                    <blockquote>{{ corpus.corpus }}</blockquote></dd>
+                <dt class="col-sm-2">Normalized Corpus Text</dt>
+                <dd class="col-sm-10">
+                    <blockquote>{{ corpus.corpus_norm }}</blockquote></dd>
+              
+            </dl>
+		</div>
+	</div>
+	{% endblock %}
+</div>
+{% endblock %}
+
+

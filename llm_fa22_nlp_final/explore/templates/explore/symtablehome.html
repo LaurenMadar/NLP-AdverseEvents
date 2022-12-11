@@ -1,0 +1,34 @@
+{% load static %}
+
+<div class="row">
+    <div class="col">
+        {% if symhome %}
+        <table class="table table-sm table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Symptom</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sym in symhome %}
+                <tr>
+                    <td><a href="{% url 'explore:symptomdetail' sym.id %}">{{ sym.id }}</a></td>
+                    <td><a href="{% url 'explore:symptomdetail' sym.id %}">{{ sym.name_norm }}</a></td>
+                </tr>
+                {% endfor %}    
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="flex-wrap justify-content-center">
+                        <a href="/explore/symptoms">View full Symptom List ({{ countsym }} records)</a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        {% else %}
+        <h6>No symptoms are available.</h6>
+        <p><a href="/admin/">Go to Admin to add some.</a></p>
+        {% endif %}
+    </div>
+</div>

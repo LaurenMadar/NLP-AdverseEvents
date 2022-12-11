@@ -1,0 +1,51 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Lauren Madar">
+    <title>Adverse Event Detection</title>
+
+<link href="{% static 'bootstrap' %}/css/bootstrap.min.css" rel="stylesheet">
+<link href="{% static '' %}app.css" rel="stylesheet">  
+</head>
+<body class="final d-flex flex-column h-100">
+
+  {% block header %}
+  {% include 'headernav.html' %}
+  {% endblock %} 
+<main class="d-flex flex-nowrap">
+
+  {% block sidebar %}
+  {% include 'sidebar.html' %}
+  {% endblock %} 
+
+  <div class="final-workspace container-fluid d-flex">
+    {% block workspace %}
+    <div class="container-fluid workspace-container">
+      <h4 class="pb-2 border-bottom">
+        {% block workspacetitle %}
+          Home
+        {% endblock %}
+      </h4>
+  
+      <div class="row ">
+        <div class="d-flex flex-column ">
+        
+          {% block workspacebody %}
+          {% include 'overview.html' %}
+          {% endblock %}
+      
+        </div>
+      </div>
+    </div>
+    {% endblock %} 
+  </div>
+</main>
+
+{% block footer %}
+{% include 'footer.html' %}
+{% endblock %} 
+
+</body></html>

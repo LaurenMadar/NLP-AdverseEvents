@@ -1,0 +1,31 @@
+{% extends "sidebar.html" %}
+{% load static %}
+
+{% block sb_home %}
+<li class="mb-1">
+  <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+    Home
+  </button>
+  <div class="collapse" id="home-collapse">
+    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+      <li><a href="/" class="active link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
+     </ul>
+  </div>
+</li>
+{% endblock %} 
+{% block sb_explore %}
+<li class="mb-1">
+  <button aria-current="page" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#explore-collapse" aria-expanded="true">
+    Explore
+  </button>
+  <div class="collapse show" id="explore-collapse">
+    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+      <li><a href="/explore/" class="link-dark d-inline-flex text-decoration-none rounded">Explore All</a></li>
+      <li><a href="/explore/corps/" class="link-dark d-inline-flex text-decoration-none rounded">Browse Medical Note Text Entries</a></li>
+      <li><a href="/explore/meds/" class="link-dark d-inline-flex text-decoration-none rounded">Browse All Medications</a></li>
+      <li><a href="/explore/symptoms/" class="link-dark d-inline-flex text-decoration-none rounded">List Symptoms</a></li>
+      <li><a href="/admin/" class="link-dark d-inline-flex text-decoration-none rounded">Administer Text, Meds, Symptoms (requires auth)</a></li>
+    </ul>
+  </div>
+</li>
+{% endblock %} 

@@ -1,0 +1,72 @@
+{% extends "explore/explorehome.html" %}
+{% load static %}
+
+{% block workspace %}
+<div class="container fluid d-flex flex-column flex-grow-0">
+	<div class="d-flex flex-row flex-grow-0">
+		<div class="col">
+			<h4 class="pb-2 border-bottom">
+				{% block workspacetitle %}
+				Medication ID {{medication.id}} Detail: {{ medication.name }} 
+				{% endblock %}
+			</h4>
+		</div>
+	</div>
+
+	{% block workspacebody %}
+	<div class="d-flex flex-row flex-grow-1">
+		<div class="col">
+            <dl class="row">
+                <dt class="col-sm-2">Compound Name</dt>
+                <dd class="col-sm-4">
+                  <p>{{ medication.compound_name}}</p>
+                </dd>
+                <dt class="col-sm-2">Compound (Normalized)</dt>
+                <dd class="col-sm-4">
+                  <p>{{ medication.compound_norm}}</p>
+                </dd>
+                <dt class="col-sm-2">Generic Name</dt>
+                <dd class="col-sm-4">
+                  <p>{{ medication.generic_name}}</p>
+                </dd>
+                <dt class="col-sm-2">Generic Normalized</dt>
+                <dd class="col-sm-4">
+                  <p>{{ medication.generic_norm}}</p>
+                </dd>
+                <dt class="col-sm-2">Brand Name</dt>
+                <dd class="col-sm-4">
+                  <p>{{ medication.brand_name}}</p>
+                </dd>
+                <dt class="col-sm-2">Brand (Normalized)</dt>
+                <dd class="col-sm-4">
+                  <p>{{ medication.brand_norm}}</p>
+                </dd>
+                <dt class="col-sm-2">Labeler</dt>
+                <dd class="col-sm-4">
+                  <p>{{ medication.labeler}}</p>
+                </dd>
+                <dt class="col-sm-2">Labeler (Normalized)</dt>
+                <dd class="col-sm-4">
+                  <p>{{ medication.labeler_norm}}</p>
+                </dd>
+                <dt class="col-sm-2">Type</dt>
+                <dd class="col-sm-4">
+                  <p>{{ medication.type}}</p>
+                </dd>
+                <dt class="col-sm-2">NDC ID</dt>
+                <dd class="col-sm-4">
+                  <p>{{ medication.ndc_id}}</p>
+                </dd>
+                <dt class="col-sm-2">Class</dt>
+                <dd class="col-sm-10">
+                  <p>{{ medication.pharm_class }}</p>
+                </dd>
+            </dl>
+		</div>
+	</div>
+	{% endblock %}
+</div>
+{% endblock %}
+
+
+

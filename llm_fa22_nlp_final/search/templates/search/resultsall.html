@@ -1,0 +1,61 @@
+{% extends "search/search.html" %}
+{% load static %}
+
+{% block workspace %}
+<div class="container fluid">
+	<div class="row">
+		<div class="col">
+			<h4 class="pb-2 border-bottom">
+				{% block workspacetitle %}
+				Results
+				{% endblock %}
+			</h4>
+		</div>
+	</div>
+	{% block workspacebody %}
+
+    
+	<div class="row">
+		<div class="col">
+            <p>These {{ numae }} corpus items should be checked for Adverse Events!</p>
+            <p>Searched {{ numsearched }} corpuses for mentions of 1 or more medication and 1 or more symptoms.</p>
+            <table class="table flex-grow-1 table-sm table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Corpus DB ID, Generic</th>
+                    <th>Med Match IDs, Compounds:</th>
+                    <th>Sym Match IDs, Symptoms:</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in results.itertuples %}
+                <tr>
+                    <td><a href="{% url 'explore:corpusdetail' item.id %}">Corpus {{ item.id }}, {{item.title|truncatewords:3}}</a></td>
+                    <td>
+                        <ul>
+                        {% for m in item.medresultmeta.itertuples %}
+                        <li>
+                            <a href="{% url 'explore:meddetail' m.id %}">{{ m.id }}</a>, {{m.compound_norm|truncatewords:3}}
+                        </li>
+                        {% endfor %}
+                        </ul>                     
+                    </td>
+                    <td>
+                        <ul>
+                            {% for n in item.symresultmeta.itertuples %}
+                            <li>
+                                <a href="/explore/symptomdetail/{{ n.id }}">{{ n.id }}</a>, {{n.name_norm|truncatewords:3}}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                {% endfor %}    
+            </tbody>
+        </table>
+		</div>
+	</div>
+ 
+	{% endblock %}
+</div>
+{% endblock %}

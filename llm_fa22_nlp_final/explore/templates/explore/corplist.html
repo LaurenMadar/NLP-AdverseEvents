@@ -1,0 +1,67 @@
+{% extends "explore/expworkspace.html" %}
+
+{% load static %}
+
+<div class="container fluid">
+	<div class="row">
+		<div class="col">
+			<h5>
+				{% block workspacetitle %}
+				Corpus List ({{ page_obj.paginator.count }} records)
+				{% endblock %}
+			</h5>
+		</div>
+	</div>
+
+    {% block workspacebody %}
+ 
+    <div class="row">
+        <div class="col">
+            Corplist={{ corplist }}
+            {% if corplist %}
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Excerpt <nav aria-label="pager">
+                            <ul class="pagination pagination-sm">
+                              <li class="page-item active" aria-current="page">
+                                <span class="page-link">1</span>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            </ul>
+                          </nav></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for corp in corplist %}
+                    <tr>
+                        <td>{{ corp.id }}</td>
+                        <td><a href="{% url 'explore:corpusdetail' corp.id %}">{{ corp.title }}</a></td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}    
+                </tbody>
+            </table>
+            {% else %}
+            <h6>No text corpuses are available.</h6>
+            <p><a href="/admin/">Go to Admin to add some.</a></p>
+            {% endif %}
+        </div>
+    </div>
+
+	<div class="row">
+		<div class="col">
+			<h5>Medications</h5>
+		</div>
+		<div class="col">
+			<h5>Symptoms</h5>
+		</div>
+	</div>
+	{% endblock %}
+</div>
+
+
+

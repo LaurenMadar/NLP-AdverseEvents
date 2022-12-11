@@ -1,0 +1,48 @@
+{% load static %}
+
+    <div class="row ">
+      <div class="d-flex flex-column ">
+        <h5 class="fw-bold">Objective</h5>
+        <p>Adverse events are instances where a patient who has taken a pharmaceutical drug (or used a medical device) 
+            and then has a negative experience (such as a side effect). Pharmaceutical manufacturers must report and address adverse events in a timely manner to ensure that the adverse events can be appropriately handled (in extreme cases, by way of a product recall).
+        </p>
+      </div>
+      <div class="row row-cols-2 g-4">
+        <div class="d-flex flex-column ">
+          <h5 class="fw-semibold mb-0">Usefulness</h5>
+          <p >
+            Adverse events can be reported in many ways – a patient may call a pharmaceutical company directly (and captured by call transcript), via email message, or may make mention of a side effect when they speak to their physician during a visit. Physicians are expected to properly report such instances to the appropriate company. However, many physicians are extremely busy and have limited time to spend with each patient. It would be advantageous to be able to identify potential adverse events in a physician’s visit notes, from patient messages and chats in health portals and other sources. Even if identification of potential adverse events is not accurate, automatically parsing and flagging documents or phrases for review would allow these events to be more quickly identified and reported to the appropriate companies.
+            </p>
+            <p >
+NLP is currently used in many healthcare use cases such as prior authorization for determination of health insurance payment eligibility. When it comes to reporting adverse events, in some cases PDF and web forms are still used for submission (such as the Vaccine Adverse Event Reporting System - <a href="https://vaers.hhs.gov/reportevent.html" target="_blank">https://vaers.hhs.gov/reportevent.html</a>).
+</p>
+<p>
+However, adverse events can occur within conversations or documents that are not specifically intended to communicate an adverse event – a patient may make an offhanded comment about having a headache after taking a prescription drug, which must still be reported. This type of comment may not be detected by a busy physician or reviewed by a medical office staffer if it occurs in a message or email, or if included in logbook notes in a wellness application. Monitoring for adverse events in any sort of patient-related text would be of great benefit for capturing these types of events quickly regardless of the appropriateness of the channel through which it was submitted.
+</p>
+<hr />
+<h5 class="fw-semibold mb-0">GitHub Repository</h5>
+<p><a href="https://github.iu.edu/lmadar/NLP-AdverseEvents" target="_blank">NLP-AdverseEvents on IU Enterprise GitHub</a></p>
+        </div>
+
+
+        <div class="d-flex flex-column">
+          <h5 class="fw-semibold mb-0">Data</h5>
+          <p class="lead">Data may potentially come from several sources, including:</p>
+          <ol>
+            <li>
+                Simulated patient/physician conversations (as described here: <a href="https://www.nature.com/articles/s41597-022-01423-1" target="_blank">https://www.nature.com/articles/s41597-022-01423-1</a>). The Food and Drug Administration (FDA) provides a public dashboard for exploring adverse events that have been reported (FAERS dashboard - <a href="https://www.fda.gov/drugs/questions-and-answers-fdas-adverse-event-reporting-system-faers/fda-adverse-event-reporting-system-faers-public-dashboard" target="_blank">https://www.fda.gov/drugs/questions-and-answers-fdas-adverse-event-reporting-system-faers/fda-adverse-event-reporting-system-faers-public-dashboard</a>) but the data available here does not contain the original reported text – the data here has already been categorized and cleaned. Deidentified (personal health information removed) 2,434 nursing notes from the MIMIC-II database are available on PhysioNet (<a href="https://physionet.org/content/deidentifiedmedicaltext/1.0" target="_blank">https://physionet.org/content/deidentifiedmedicaltext/1.0</a>) once training has been completed and this set of data would make sense to use for this project. The data available includes free-text data from the nurse’s description of the interaction with the patient, which may have medication and treatment information. Additional columns with sanitized personal identification are provided as well, but labels are not present. Further data analysis will be necessary once full access is attained.
+            </li>
+            <li>
+                Another source could be <a href="https://www.kaggle.com/datasets/tboyle10/medicaltranscriptions" target="_blank">https://www.kaggle.com/datasets/tboyle10/medicaltranscriptions</a> (mtsamples.csv has been uploaded to my project repository) which includes transcription text from medical visits for a Kaggle classification challenge. Relevant columns include "description" which describes a patient, "transcription" which is a transcription of a physician's medical notes from a patient interaction. There are 2358 unique transcription data items.
+            </li>
+            <li>
+                A third souce could be patient notes from another Kaggle challenge (a scoring challenge for identifying key phrases) at <a href="https://www.kaggle.com/competitions/nbme-score-clinical-patient-notes/data" target="_blank">>https://www.kaggle.com/competitions/nbme-score-clinical-patient-notes/data</a> - the data in patient_notes.csv has a column "pn_history" which is text of a patient encounter, and there are 42,146 values here. The data from this challenge also includes annotations for some of the cases, but not all, and this project would focus on identifying symptoms, medications, and records with potential adverse events.
+            </li>
+          </ol>
+          <p>
+            Stopwords will need to be identified, and the different generic and brand names of drugs should be created as a dictionary to search any free text. A vocabulary of common adverse events or symptoms (like “headache”) should be created and trained. Special characters can be cleaned but dosage information which may be numeric will be important to retain.
+          </p>
+        </div>
+
+    
+      </div>

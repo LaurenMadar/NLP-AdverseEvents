@@ -1,0 +1,33 @@
+{% extends "search/search.html" %}
+{% load static %}
+
+{% block workspace %}
+<div class="container fluid">
+	<div class="row">
+		<div class="col">
+			<h4 class="pb-2 border-bottom">
+				{% block workspacetitle %}
+				Symptom Vocab
+				{% endblock %}
+			</h4>
+		</div>
+	</div>
+	{% block workspacebody %}
+
+    
+	<div class="row">
+		<div class="col">
+            <ul>
+                {% for item in symvocab %}
+                <li>
+                    {{ item }}
+                </li>
+                {% endfor %}    
+            </ul>
+        
+		</div>
+	</div>
+ 
+	{% endblock %}
+</div>
+{% endblock %}

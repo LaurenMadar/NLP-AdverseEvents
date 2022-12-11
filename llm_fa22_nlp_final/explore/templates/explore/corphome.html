@@ -1,0 +1,23 @@
+{% extends "explore/explorehome.html" %}
+{% load static %}
+
+{% block workspace %}
+<div class="container fluid">
+	<div class="row">
+		<div class="col">
+			<h4 class="pb-2 border-bottom">
+				{% block workspacetitle %}
+				Explore Medical Note Text Corpuses: ({{ page_obj.paginator.count }} records)
+				{% endblock %}
+			</h4>
+		</div>
+	</div>
+	{% block workspacebody %}
+	<div class="row">
+		<div class="col">
+			{% include 'explore/corptable.html' %}
+		</div>
+	</div>
+	{% endblock %}
+</div>
+{% endblock %}

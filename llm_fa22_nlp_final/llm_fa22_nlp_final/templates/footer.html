@@ -1,0 +1,23 @@
+{% load static %}
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+      <span class="text-muted">Indiana University Bloomington Luddy School - Fall 2022 Intro to Natural Language Processing for Data Science</span>
+    </div>
+</footer>
+<script src="{% static 'bootstrap' %}/js/bootstrap.bundle.min.js"></script>
+<script src="{% static '' %}/sidebars.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
+<script>
+  jQuery(function($) {
+    $('#search').on('click', function() {
+    limitvalue = $('#searchlimit').val();
+    window.location.href="/search/results/" + limitvalue;
+    $(this).addClass('disabled');
+    $(this).text = "SEARCHING! This may take a while, please wait."
+    
+  });
+});
+</script>

@@ -1,0 +1,36 @@
+{% load static %}
+
+<div class="d-flex flex-row container-fluid">
+    <div class="flex-column container-fluid">
+        {% if corphome %}
+        <table class="table flex-grow-1 table-sm table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Excerpt</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for corp in corphome %}
+                <tr>
+                    <td>{{ corp.id }}</td>
+                    <td><a href="{% url 'explore:corpusdetail' corp.id %}">{{ corp.title|truncatewords:3 }}</a></td>
+                    <td>{{ corp.corpus|truncatewords:6 }}</td>
+                </tr>
+                {% endfor %}    
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="flex-wrap justify-content-center">
+                        <a href="/explore/corps">View full list of Medical Notes ({{ countcorp }} records)</a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        {% else %}
+        <h6>No text corpuses are available.</h6>
+        <p><a href="/admin/">Go to Admin to add some.</a></p>
+        {% endif %}
+    </div>
+</div>

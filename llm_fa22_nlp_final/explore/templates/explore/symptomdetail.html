@@ -1,0 +1,41 @@
+{% extends "explore/explorehome.html" %}
+{% load static %}
+
+{% block workspace %}
+<div class="container fluid d-flex flex-column flex-grow-0">
+	<div class="d-flex flex-row flex-grow-0">
+		<div class="col">
+			<h4 class="pb-2 border-bottom">
+				{% block workspacetitle %}
+				Symptom ID {{ symptom.id }} Detail:
+				{% endblock %}
+			</h4>
+		</div>
+	</div>
+	{% block workspacebody %}
+	<div class="d-flex flex-row flex-grow-1">
+		<div class="col">
+            <dl class="row">
+                <dt class="col-sm-2">Name</dt>
+                <dd class="col-sm-4">
+                  <p>{{ symptom.name}}</p>
+                </dd>
+				<dt class="col-sm-2">Normalized Name</dt>
+                <dd class="col-sm-4">
+                  <p>{{ symptom.name_norm}}</p>
+                </dd>
+                <dt class="col-sm-2">Word List</dt>
+                <dd class="col-sm-10">
+                    <blockquote>{{ symptom.wordlist }}</blockquote></dd>
+                <dt class="col-sm-2">Source URL</dt>
+                <dd class="col-sm-10">
+                  <a href="{{ symptom.url}}" target="_blank">{{symptom.url}}</a>
+                </dd>
+            </dl>
+		</div>
+	</div>
+	{% endblock %}
+</div>
+{% endblock %}
+
+

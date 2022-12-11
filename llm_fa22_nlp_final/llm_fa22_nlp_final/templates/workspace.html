@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="container fluid workspace-container">
+	<div class="row">
+		<div class="col">
+            <h4 class="pb-2 border-bottom">
+                {% block workspacetitle %}
+                  Explore
+                {% endblock %}
+              </h4>
+		</div>
+	</div>
+	{% block workspacebody %}
+	<div class="row">
+		<div class="col">
+            <h6>Heading</h6>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<h6>Heading</h6>
+		</div>
+		<div class="col">
+			<h6>Heading</h6>
+		</div>
+	</div>
+	{% endblock %}
+</div>
